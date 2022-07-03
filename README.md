@@ -13,6 +13,6 @@ Still to implement in backend:
  
 run backend: nodemon server
 
-Front end not yet implemented.
+Front end not yet built.
 
 
