@@ -1,0 +1,63 @@
+
+
+/* centering classes*/
+
+.centerHorizontal{
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pageTitle{
+  position: relative;
+  width: fit-content;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: larger;
+  color: aliceblue;
+  text-decoration: underline;
+  span{
+    color: red;
+  }
+}
+
+.authContainer{
+  position: relative;
+  background-color: rgb(43, 43, 43);
+  border-top: 5px solid rgba(185, 0, 185, 0.402);
+  box-shadow: 10px 10px 10px 10px black;
+  width: 30vw;
+  height: 15vw;
+  min-width: 300pt;
+  min-height: 150pt;
+  max-width: 500pt;
+  max-height: 200pt;
+}
+
+.authForm{
+  
+  width: 50%;
+  padding: 10pt;
+  margin: auto;
+
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  p{
+    color: aliceblue;
+  }
+  input{
+    margin-left: 5pt;
+    width: 100%;
+    margin: 2pt;
+  }
+  button{
+    margin-top: 5pt;
+    margin-left: 2pt;
+    width: 100pt;
+    border-style: double;
+    background-color: rgb(89, 89, 89);
+    box-shadow: 2px 2px 2px 2px black;
+    
+  }
+  button:hover{
+    background-color: rgba(25, 19, 19, 0.555);
+    color: aliceblue;
+  }
+}
