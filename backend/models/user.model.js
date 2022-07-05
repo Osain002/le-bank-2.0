@@ -52,7 +52,30 @@ const userSchema = new mongoose.Schema({
                 type: Number,
                 unique: true,
                 length: 9
-            }
+            },
+
+            statement: [
+                {
+                    required: false,
+
+                    transactionType: {
+                        type: String,
+                        required: true,
+                    },
+                    amount: {
+                        type: Number,
+                        requirec: true,
+                    },
+                    name: {
+                        type: String,
+                        required: true
+                    },
+                    Ref: {
+                        type: String,
+                        required: true
+                    }
+                }
+            ]
         }
     ]
 }, {
@@ -62,3 +85,5 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+
+

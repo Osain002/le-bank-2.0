@@ -1,35 +1,52 @@
 
 import './App.scss';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { useState } from 'react';
 
 import Auth from './components/userAuthentication';
 import Dashboard from './components/Dashboard';
-import Login from './components/Login';
 
-function App(props) {
+// import Login from './components/Login';
 
-  const [loggedIn, setLoggedIn] = useState(false)
-  const getLoggedIn = (state) => {
+const App = (props) => {
+  const [accInfo, SetAccInfo] = useState()
 
-    setLoggedIn(state)
-    props.history.push('/dashboard')
-  } 
   return (
     <Router>
       <div className="App">
-        <div className='centerHorizontal pageTitle'>
-          <h1>
-            Le<span>
-              B
-            </span>
-            ank
-          </h1>
-        </div>
+        <Switch>
 
-        {
-          loggedIn?(<Dashboard />):(<Auth isLoggedIn={getLoggedIn}/>)
-        }
+          <Route exact path="/">
+          
+            <div className='pageTitle centerHorizontal'>
+              <h1>
+                Le  
+                <span>
+                  B
+                </span>
+                ank
+              </h1>
+            </div>
+            
+            {
+              accInfo?(
+                <Redirect from='/' to='/dashboard'/> 
+              ):(
+                <Auth accInfo={SetAccInfo}/>
+              )
+            }
+          </Route>
+          <Route exact path='/dashboard'>
+            {
+              accInfo?(
+                <Dashboard accInfo={accInfo}/>
+              ):(
+                <Redirect from='/dashboard' to='/'/>
+              )
+              }
+          </Route>
+        </Switch> 
+        
       </div>
     </Router>
   );

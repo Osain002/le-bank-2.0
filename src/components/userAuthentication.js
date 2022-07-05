@@ -5,7 +5,7 @@ import LoginForm from './Login';
 const userAuthenticationContainer = (props) => {
   return (
     <div className='centerHorizontal authContainer'>
-      <LoginForm isLoggedIn={props.isLoggedIn}/>
+      <LoginForm accInfo={props.accInfo}/>
     </div>
   )
 }

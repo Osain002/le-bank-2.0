@@ -33,7 +33,7 @@ router.route('/newuser').post((req, res) => {
 
 
     newUser.save()
-        .then(() => res.sendStatus(200)); 
+        .then(() => res.sendStatus(200)) 
 });
 
 
@@ -50,7 +50,8 @@ router.route('/login').post((req,res) => {
         )
         .then(user => {
             if (user) {
-                res.status(200).send({"id_": user.id});
+                res.redirect(`/userhome/${user.id}`)
+                //res.status(200).send({"id_": user.id});
             }else{
                 res.status(403);
             }

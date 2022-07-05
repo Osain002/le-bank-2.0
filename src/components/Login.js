@@ -14,11 +14,7 @@ const Login = (props) => {
             "password": password
         })
         .then(res => {
-            if (res.status === 200){
-                props.isLoggedIn(true);
-            }else{
-                props.isLoggedIn(false);
-            }
+            props.accInfo(res)
         })
 
     }
