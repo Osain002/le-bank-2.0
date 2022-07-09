@@ -3,8 +3,10 @@ import React from 'react'
 const Account = (props) => {
   
   const sortcode = String(props.accInfo.sortcode);
+
   return (
-    <div className='account-container'>
+    <div className='account-container' onClick={() => props.stmt(props.accInfo.statement)}>
+
       <div className='centerHorizontal balance'>
         <p>
           £{props.accInfo.balance.toFixed(2)}

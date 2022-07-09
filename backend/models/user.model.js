@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema({
             statement: [
                 {
                     required: false,
-
+                    
                     transactionType: {
                         type: String,
                         required: true,
@@ -74,6 +74,8 @@ const userSchema = new mongoose.Schema({
                         type: String,
                         required: true
                     }
+                },{
+                    timestamps: true
                 }
             ]
         }

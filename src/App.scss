@@ -5,6 +5,8 @@
 $div_color: rgb(26, 25, 25);
 $div_shadow: 5px 5px 5px 5px rgb(0, 0, 0);
 
+
+
 .centerHorizontal{
   left: 50%;
   transform: translateX(-50%);
@@ -88,24 +90,58 @@ $div_shadow: 5px 5px 5px 5px rgb(0, 0, 0);
 
 }
 
+
+
+.dashboard{
+
+
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 10vh;
+  width: 80vw ;
+  height: 30vw;
+  min-width: 600pt;
+  min-height: 300pt;
+
+}
+
 .acc-list-container{
-  position: fixed;
+
+
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 2px;
-  width: 18vw;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 15%;
+  width: 25%;
+  height: 100%;
+  min-width: 190pt;
+
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 2%;
+
+  
+
 
   .account-container{
+    
+    
     width: 15vw;
     height:  10vw;
+    min-width: 150pt;
+    min-height: 105pt;
+
+
     margin: 10pt;
+    margin-top: auto;
+    margin-bottom: auto;
     background-color: $div_color;
     display: flex;
     flex-direction: column;
-    border-top: 3px solid rgb(178, 0, 140);
+    border-top: 3px solid rgb(178, 139, 0);
     box-shadow: $div_shadow;
     cursor: pointer;
 
@@ -123,28 +159,125 @@ $div_shadow: 5px 5px 5px 5px rgb(0, 0, 0);
       margin-bottom: 10px;
     };
 
-  };
+  }
 
   .acc-info{
     color: rgb(97, 97, 97);
     width: fit-content;
     height: fit-content;
     text-align: center;
-  
     position: relative;
-    
-    
-    // margin-left: auto;
-    // margin-right: auto ;
-  
   }
 
 
 }
 
 .account-container:hover{
-  border-top: 3px solid chartreuse;
-  width: 18vw;
+  border-top: 3px solid rgb(52, 104, 0);
+  width: 16vw;
   box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+.statement-container{
+  
+  
+
+  height: 85%;
+  width: 25%;
+
+  margin-left: 2%;
+
+  margin-top: auto;
+  margin-bottom: auto;
+  
+  background-color: $div_color;
+  box-shadow: $div_shadow;
+
+  border-top: 2px solid rgb(0, 255, 60); 
+  overflow: scroll;
+
+  .statement-entry{
+    
+    width: 80%;
+    height: 20%;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+
+    background-color: rgb(88, 88, 88);
+
+    border-radius: 10pt;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.trc{ //contains transfer component AND add account component
+
+  
+  height: 100%;
+  width: 25%;
+
+  margin-top: 1.5%;
+  margin-bottom: auto;
+  margin-left: 4%;
+  padding-top: 10pt;
+  .transfer-container{
+    position: relative;
+    border-top: 2px solid red;
+    overflow: scroll;
+    width: 90%;
+    height: 75%;
+    margin-left: 2%;
+    
+    background-color: $div_color;
+    box-shadow: $div_shadow;
+
+    padding: 15pt;
+    color: rgb(150, 150, 150);
+
+    form{
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+
+      label{
+        display: inline-block;
+        width: 100pt;
+      }
+
+
+      input, select{
+        
+        left: 40%;
+        background-color: rgb(181, 181, 181);
+
+        border-radius: 5pt;
+        
+        width: 60%;
+        margin: 3%;
+        
+      }
+    }
+
+  }
 }
 

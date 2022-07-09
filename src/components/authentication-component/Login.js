@@ -1,22 +1,12 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+
 
 
 const Login = (props) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("")
-    
+
     const handle_login = (event) => {
         event.preventDefault();
-        const url = "http://localhost:8080/userauthentication/login"
-        axios.post(url, {
-            "email": email,
-            "password": password
-        })
-        .then(res => {
-            props.accInfo(res)
-        })
-
+        props.fetch()
     }
 
   return (
@@ -26,17 +16,15 @@ const Login = (props) => {
         </p>
         <form onSubmit={handle_login}>
             <input
-                value={email}
                 type='email' 
                 placeholder='Email address'
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => props.setEmail(e.target.value)}
             />
             <br></br>
             <input
-                value={password}
                 type='password' 
                 placeholder='Password'
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => props.setPassword(e.target.value)}
             />
             <br></br>
             <button type='submit'>Log In</button>

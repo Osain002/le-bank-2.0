@@ -3,15 +3,8 @@ const router = require('express').Router();
 let User = require('../models/user.model');
 
 
-const findAcc = (accNum, user) => {
-    for (acc in user.accounts) {
-        if (user.accounts[acc].accNum === accNum) {
-            return user.accounts[acc];
-        }
-    }
-}
 
-router.route('/:id').post((req,res) => {
+router.route('/').post((req,res) => {
 
     const recipFname = req.body.recipFname;
     const recipLname = req.body.recipLname;
@@ -21,46 +14,54 @@ router.route('/:id').post((req,res) => {
     const recipAccNum = req.body.recipAccNum;
     const ref = req.body.ref;
 
-    var senderFname;
-    var senderLname;
+    var senderFname = req.body.senderFname;
+    var senderLname = req.body.senderLname;
 
 
 
-    User.findById(req.params.id) //find sender by id so that money cannot be sent from an account that does not belong to the user
-        .then(user => {
-            const senderAcc = findAcc(senderAccNum, user); //find correct account to send finds from
-            senderAcc.balance -= transfer_amount; //subtract transfer amount from account balance
-            senderAcc.statement.push({
-                transactionType: 'Transfer',
+
+    function handleTransfer(user_, acc, type, fname, lname) {
+        console.log('H:',acc)
+        const user = user_
+        const statementList  = acc.statement;
+
+        if (type == 'Tin'){
+            acc.balance += Number(transfer_amount); //add transfer amount to balance
+        }else if (type == 'Tout'){
+            acc.balance -= Number(transfer_amount);
+        }
+
+        statementList.push(
+            {
+                transactionType: type,
                 amount: transfer_amount,
-                name: recipFname + '' +recipLname,
+                name: fname + '' + lname,
                 Ref: ref
+            }
+        );  
+    }
+
+    User.find({  //find both accounts
+        sortcode: 123201,
+        accNum: {$in: [recipAccNum, senderAccNum]}
+    }) //find sender by id so that money cannot be sent from an account that does not belong to the user
+        .then(users => {
+
+            users.forEach(user => {
+                const accounts = user.accounts
+                accounts.forEach( acc => {
+                    if (acc.accNum == senderAccNum){
+                       
+                        handleTransfer(user, acc, 'Tout', recipFname, recipLname);
+                    }
+
+                    if (acc.accNum == recipAccNum){
+                        handleTransfer(user, acc, 'Tin', senderFname, senderLname);
+                    } 
+                })
+                user.save()
             })
-            user.save(); //save updated balance
-
-            senderFname = user.firstname;  
-            senderLname = user.lastname;
         })
-        
-
-    User.findOne({
-        sortcode: recipSortCode,
-        accNum: recipAccNum 
-    })
-    .then( user => {
-        const recipAcc = findAcc(recipAccNum, user); //find correct account to transfer funds to
-        recipAcc.balance += transfer_amount; //add transfer amount to balance
-
-        recipAcc.statement.push({
-            transactionType: 'Transfer',
-            amount: transfer_amount,
-            name: senderFname + '' + senderLname,
-            Ref: ref
-        })
-
-        user.save();
-    })
-    .then(res.sendStatus(200)); //save updated balance
 })   
 
 module.exports = router;
