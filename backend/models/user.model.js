@@ -54,6 +54,17 @@ const userSchema = new mongoose.Schema({
                 length: 9
             },
 
+            cardNum: {
+                type: Number,
+                unique: true,
+                length: 16
+            },
+
+            CV2: {
+                type: Number, 
+                length: 3
+            },
+
             statement: [
                 {
                     required: false,
@@ -73,9 +84,10 @@ const userSchema = new mongoose.Schema({
                     Ref: {
                         type: String,
                         required: true
+                    },
+                    Date: {
+                        type: String
                     }
-                },{
-                    timestamps: true
                 }
             ]
         }

@@ -22,7 +22,7 @@ mongoose.connect(uri, { useNewUrlParser: true});
 
 connection.once('open', () => {
     console.log('...database connection success')
-})
+});
 
 
 const userAuthRouter = require('./routes/userauthentication');
@@ -33,9 +33,9 @@ const transferRouter = require('./routes/transfer');
 app.use('/userauthentication', userAuthRouter);
 app.use('/userhome', homeRouter);
 app.use('/addaccount', addAccountRouter);
-app.use('/transfer', transferRouter)
+app.use('/transfer', transferRouter);
 
 
 app.listen(port, () => {
-    console.log(`...server running on port ${port}`)
+    console.log(`...server running on port ${port}`);
 });

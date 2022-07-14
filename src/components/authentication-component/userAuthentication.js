@@ -1,6 +1,7 @@
 import React from 'react';
 
-import LoginForm from './authentication-component/Login';
+
+import LoginForm from './Login';
 
 const userAuthenticationContainer = (props) => {
   return (

@@ -1,11 +1,19 @@
 import React from 'react'
 
+
+
 const Account = (props) => {
+
   
   const sortcode = String(props.accInfo.sortcode);
 
+  function handle_statement_change(){
+
+    props.stmt(props.accInfo.statement) //set statement to correspond with selected account
+  }
+
   return (
-    <div className='account-container' onClick={() => props.stmt(props.accInfo.statement)}>
+    <div className='account-container' onClick={handle_statement_change}>
 
       <div className='centerHorizontal balance'>
         <p>

@@ -15,6 +15,8 @@ router.route('/newuser').post((req, res) => {
     const balance = 50;
     const sortcode = 123201;
     const accNum = Math.floor(Math.random() * 1000000000);
+    const cardNum = Math.floor(Math.random()*10000000000000000); //generate 16-digit card number
+    const cv2 = Math.floor(Math.random()*1000)
 
     
 
@@ -27,7 +29,9 @@ router.route('/newuser').post((req, res) => {
             accType,
             balance,
             sortcode,
-            accNum
+            accNum,
+            cardNum,
+            cv2
         }
     });
 
