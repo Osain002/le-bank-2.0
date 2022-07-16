@@ -1,14 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 
-
-//Apply DRY. is there a methos like map, but for objects which can generate the statement content?
-
-
-
-const StatementInfo = (props) => {
+const StatementInfo = (props) => { //when a statement entry is clicked, the following code will run
     return (
-
         <div className='statement-entry' onClick={() => props.setShowInfo(false)} >
             <div className='entry-preview'>
                 {props.transInfo.Date}
@@ -73,16 +67,7 @@ const StatementInfo = (props) => {
 
 const StatementEntry = (props) => {
 
-    const [showInfo, setShowInfo] = useState(false);
-
-
-
-
-
-
-
-
-
+    const [showInfo, setShowInfo] = useState(false); 
     return (
         <div className='entry-container'>
             {

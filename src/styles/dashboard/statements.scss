@@ -2,17 +2,14 @@ $div_color: rgb(38, 38, 38);
 $div_shadow: 10, 10, 10, 10px;
 
 .statement-container{
-  
-  
 
-    height: 85%;
-    width: 27%;
+    height: 50vh;
+    width: 25vw;
     min-width: 250pt;
   
     margin-left: 2%;
-  
-    margin-top: auto;
-    margin-bottom: auto;
+
+    margin-top: 2%;
     
     background-color: $div_color;
     box-shadow: $div_shadow;
@@ -20,7 +17,6 @@ $div_shadow: 10, 10, 10, 10px;
     border-top: 2px solid rgb(0, 255, 60); 
     overflow: scroll;
   
-    padding: 5pt;
   
     .entry-preview{
       display: flex;

@@ -9,16 +9,13 @@ $div_shadow: 10, 10, 10, 10px;
     position: relative;
     display: flex;
     flex-direction: column;
-    border: 2px;
-    width: 25%;
-    height: 100%;
+
+    width: 17vw;
+    height: 50vh;
+
+
     min-width: 190pt;
-  
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 2%;
-  
-    
+    margin-top: 2%;
   
   
     .account-container{
@@ -31,8 +28,9 @@ $div_shadow: 10, 10, 10, 10px;
   
   
       margin: 10pt;
-      margin-top: auto;
-      margin-bottom: auto;
+
+      margin: auto;
+
       background-color: $div_color;
       display: flex;
       flex-direction: column;

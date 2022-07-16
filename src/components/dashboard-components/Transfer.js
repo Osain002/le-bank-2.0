@@ -14,12 +14,12 @@ const Transfer = (props) => {
    const [sendAmount, setSendAmount] = useState();
    const [reference, setReference] = useState();
 
-   console.log(props.name)
 
+   
    function handleTransfer(event) {
       event.preventDefault();
       const url = "http://localhost:8080/transfer/";
-      
+
       const requestJson = {
          "recipFname": fname,
          "recipLname": lname,

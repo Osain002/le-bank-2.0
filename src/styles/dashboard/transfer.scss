@@ -7,22 +7,28 @@ $div_shadow: 10pt, 10pt, 10pt, 10pt;
   
   
     border-top: 2px solid red;
+
     overflow: scroll;
-    width: 50%;
+
+    width: 20vw;
     min-width: 200pt;
-    height: 80%;
+    height: 50vh;
+
+
     margin-left: 10%;
     margin-top: 3vh;
+
+    padding-left: 5pt;
     background-color: $div_color;
     box-shadow: $div_shadow;
   
-    padding: 15pt;
     color: rgb(150, 150, 150);
   
     form{
       display: flex;
       flex-direction: column;
       width: 80%;
+      margin-top: 5pt;
   
       label{
         display: inline-block;
