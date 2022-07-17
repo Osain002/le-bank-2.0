@@ -49,9 +49,7 @@ const Dashboard = (props) => {
                         )
                     }
                 </div>
-
                 <Statement statement={statement} />
-
                 <div className='trc'>
                     <Transfer
                         name={[props.accInfo.data.firstname, props.accInfo.data.lastname]}

@@ -19,14 +19,14 @@ router.route('/:id/:Type').post((req, res) => {
         balance,
         sortcode,
         accNum,
-        cardDetails: {
+        cardDetails: (accType === 'Current')?{
             cardNum: cardNum,
             CV2: CV2,
             expiryDate: String(expiryDate)
-        }
+        }:{}
     };
 
-    
+
     User.findById(req.params.id)
         .then((user) => {
             user.accounts.push(accInfo);

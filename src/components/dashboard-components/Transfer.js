@@ -15,7 +15,7 @@ const Transfer = (props) => {
    const [reference, setReference] = useState();
 
 
-   
+
    function handleTransfer(event) {
       event.preventDefault();
       const url = "http://localhost:8080/transfer/";
@@ -32,13 +32,9 @@ const Transfer = (props) => {
          "senderLname": props.name[1]
       };
 
-
-
       axios.post(url, requestJson)
          .then(props.setRefresh(true))
    }
-
-
 
 
    return (

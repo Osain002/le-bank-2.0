@@ -25,19 +25,32 @@ const App = () => {
    const [isClickedOn, setIsClickedOn] = useState('dashboard');
    const [refresh, setRefresh] = useState(false);
 
+
+
+
+
+
+
    function renderMainContent(accInfo){
-      if (accInfo){ //make sure accInfo exists     
+      if (accInfo){ //make sure accInfo exists 
+
          switch (isClickedOn){ //detect whether user is on dashboard or card screen 
             case 'dashboard':
                return <Dashboard refresh={refresh} accInfo={accInfo} setRefresh={setRefresh} />
             case 'cards':
-               console.log(accInfo.data.accounts)
                return <CardViewMain account={accInfo.data.accounts}/> 
          }
       }else{
          return <Redirect from='/dashboard' to='/' /> //if accInfo DNE, redirect to login
       }
    }
+
+
+
+
+
+
+
 
    const fetch = useCallback(() => {
       const url = "http://localhost:8080/userauthentication/login"; //API endpoint for login

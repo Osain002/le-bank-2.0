@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose')
-const session = require('express-session')
+//const session = require('express-session')
 
 require('dotenv').config();
 
@@ -10,20 +10,14 @@ const port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
-app.use(session({
-    secret: 'secret-key',
-    resave: false,
-    saveUninitialized: false
-}))
 
 const uri = process.env.ATLAS_URI;
 const connection = mongoose.connection;
 mongoose.connect(uri, { useNewUrlParser: true});
 
 connection.once('open', () => {
-    console.log('...database connection success')
+    console.log('database connection successful')
 });
-
 
 const userAuthRouter = require('./routes/userauthentication');
 const homeRouter = require('./routes/userhome');
@@ -35,7 +29,6 @@ app.use('/userhome', homeRouter);
 app.use('/addaccount', addAccountRouter);
 app.use('/transfer', transferRouter);
 
-
 app.listen(port, () => {
-    console.log(`...server running on port ${port}`);
+    console.log(`Server running on port ${port}`);
 });
