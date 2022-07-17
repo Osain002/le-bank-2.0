@@ -1,0 +1,19 @@
+$div_color: rgb(38, 38, 38);
+$div_shadow: 10, 10, 10, 10px;
+
+
+.dashboard {
+    
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+
+  width: 70vw;
+  height: 30vw;
+  min-width: 700pt;
+  min-height: 300pt;
+
+
+}

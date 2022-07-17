@@ -1,0 +1,51 @@
+
+$div_color: rgb(38, 38, 38);
+$div_shadow: 10pt, 10pt, 10pt, 10pt;
+
+.transfer-container{
+    position: relative;
+  
+  
+    border-top: 2px solid red;
+
+    overflow: scroll;
+
+    width: 20vw;
+    min-width: 200pt;
+    height: 50vh;
+
+
+    margin-left: 10%;
+    margin-top: 3vh;
+
+    padding-left: 5pt;
+    background-color: $div_color;
+    box-shadow: $div_shadow;
+  
+    color: rgb(150, 150, 150);
+  
+    form{
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin-top: 5pt;
+  
+      label{
+        display: inline-block;
+        width: 100pt;
+      }
+  
+  
+      input, select{
+        position: relative;
+        left: 40%;
+        background-color: rgb(181, 181, 181);
+        left: 50%;
+        border-radius: 5pt;
+        
+        width: 60%;
+        margin: 3%;
+        
+      }
+    }
+  }
