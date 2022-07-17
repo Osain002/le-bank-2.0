@@ -1,18 +1,15 @@
 Le-Bank 2.0
 
-Current backend functionality:
+Current functionality:
   - Create account
   - User authentication
   - Multiple bank accounts per user
   - Transfer funds between accounts and other users
+  - Statement is sutomatically generated 
+  - Dashboard view, and card view (started)
+  
+  
+run backend: nodemon server.
 
-Still to implement in backend: 
-  - Generate bank statement
-  - Email statement to user
-  - Password reset using email verification
- 
-run backend: nodemon server
-
-Front end not yet built.
 
 
